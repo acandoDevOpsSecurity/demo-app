@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "SNIPPET")
 public class Snippet {
 	private int id;
-	private UserProfile userProfile;
+	private User user;
 	private String text;
 	
 	@Id
@@ -28,11 +28,11 @@ public class Snippet {
 	
 	@ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-	public UserProfile getUserProfile() {
-		return userProfile;
+	public User getUser() {
+		return user;
 	}
-	public void setUserProfile(UserProfile userProfile) {
-		this.userProfile = userProfile;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public String getText() {
 		return text;

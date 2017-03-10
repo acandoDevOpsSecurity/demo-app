@@ -3,8 +3,8 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Google Gruyere - Spring-Boot using Gradle</title>
-    <script src="/lib.js" text="text/javascript" />
-    <link href="base.css" rel="stylesheet" />
+    <script src="/js/lib.js" text="text/javascript" />
+    <link href="/css/base.css" rel="stylesheet" />
 </head>
 <body>
 	<div th:include="menubar :: menubar"></div>
@@ -13,35 +13,34 @@
 		
 		<div class='refresh'><a class='button' onclick='_refreshHome()' href='#'>Refresh</a></div>
 	</div>
-<p th:text="${snippets}"></p>
 
 <div class='content'>
 <table width='100%'>
-  <tr th:if="${activeUser.privateSnippet}">
+  <tr th:if="${activeUser != null and activeUser.privateSnippet != null}">
     <td></td>
     <td>
       Private&nbsp;snippet&nbsp;
     </td>
     <td>
-      <a class='button' id='show' onclick='_showHide("show", "hide")' href='#'>Show &#9658;</a>
+      <a class='button' id='show' onclick="_showHide('show', 'hide')" href='#'>Show &#9658;</a>
       <span id='hide' style='display: none;'>
-      <a class='button' onclick='_showHide("show", "hide")' href='#'>Hide &#9668;</a> &nbsp;
-      <span id='private_snippet' th:text="${activeUser.privateSnippet}"></span></span>
+      <a class='button' onclick="_showHide('show', 'hide')" href='#'>Hide &#9668;</a> &nbsp;
+      <span id='private_snippet' th:utext="${activeUser.privateSnippet}"></span></span>
     </td>
   </tr>
   <tr><td colspan='3'></td></tr>
   <tr><td colspan='3'><b>Most recent snippets:</b></td></tr>
   <tr th:each="snippet : ${snippets}">
     <td>
-     <img alt='' height='32' width='32' th:src="${snippet.userProfile.icon}" />
+     <img alt='' height='32' width='32' th:src="${snippet.user.icon}" />
     </td>
     <td>
-      <b><span th:style="'color: ' + ${snippet.userProfile.color} + ';'" th:text="${snippet.userProfile.name}"></span></b>
+      <b><span th:style="'color: ' + ${snippet.user.color} + ';'" th:utext="${snippet.user.name}"></span></b>
     </td>
-    <td width='100%'><span th:id="${snippet.id}" th:text="${snippet.text}"></span>
+    <td width='100%'><span th:id="${snippet.id}" th:utext="${snippet.text}"></span>
     <br />
-          <a th:href="@{'/snippets?uid=' + ${snippet.userProfile.id}}">Snippets of user</a>&nbsp;
-      <a href='{{web_site:text}}'>Homepage</a>
+          <a th:href="@{'/snippets?uid=' + ${snippet.user.id}}">Snippets of user</a>&nbsp;
+      <a th:href="@{${snippet.user.website}}">Homepage</a>
     <br />
     <br /> 
     </td>

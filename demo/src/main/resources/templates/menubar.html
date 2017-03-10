@@ -11,8 +11,8 @@
   <span id='menu-left'>
     <a href='/'>Home</a>
       <span th:if="${activeUser} != null">
-      	| <a href='/snippets'>My&nbsp;Snippets</a>
-      	| <a href='/newsnippet'>New&nbsp;Snippet</a>
+      	| <a href='/snippet/snippets'>My&nbsp;Snippets</a>
+      	| <a href='/snippet/new-snippet'>New&nbsp;Snippet</a>
       	| <a href='/upload'>Upload</a>
       </span>
   </span>
@@ -26,7 +26,7 @@
       		| <a href='/manage'>Manage this server</a>
       	</span>
       	| <a href='/editprofile'>Profile</a>
-      	| <a href='logout'>Sign out</a>
+      	| <a href='/logout'>Sign out</a>
       </span>
       
       <span th:if="${activeUser} == null">

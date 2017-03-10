@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USER_PROFILE")
-public class UserProfile {
+@Table(name = "APPUSER")
+public class User {
 	private int id;
     private String name;
     private String password;
@@ -86,7 +86,7 @@ public class UserProfile {
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
-	@OneToMany(mappedBy = "userProfile", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	public List<Snippet> getSnippets() {
 		return snippets;
 	}
