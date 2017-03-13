@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit account</title>
+<script src="/js/lib.js" text="text/javascript" />
+<link href="/css/base.css" rel="stylesheet" />
+</head>
+<body>
+	<div th:include="menubar :: menubar"></div>
+
+	<div class='content'>
+		<h3>Edit account.</h3>
+		<form method='post' th:action='@{/save-edited-profile}' th:object='${user}'>
+			<table>
+				<tr>
+					<td>User name:</td>
+					<td th:text="*{name}"></td>
+					<input type='hidden' th:field="*{name}" />
+				</tr>
+				<tr>
+					<td>OLD Password:</td>
+					<td><input type='password' th:field="*{oldPassword}" /></td>
+				</tr>
+				<tr>
+					<td>NEW Password:</td>
+					<td><input type='password' th:field="*{password}" /> <br />
+						<span style="color: red"><b>WARNING: Gruyere is not
+								secure.<br /> Do not use a password that you use for any real
+								service.<br /> Do not upload any personal or private data.
+						</b></span></td>
+				</tr>
+				<tr>
+					<td>Icon:</td>
+					<td><input type='text' th:field="*{icon}" /> (32x32 image,
+						URL to image location)</td>
+				</tr>
+				<tr>
+					<td>Homepage:</td>
+					<td><input type='text' size='50' th:field="*{website}" /></td>
+				</tr>
+				<tr>
+					<td>Profile Color:</td>
+					<td><input type='text' th:field="*{color}" /></td>
+				</tr>
+				<tr>
+					<td>Private Snippet:</td>
+					<td><textarea name='private_snippet' rows='10'
+							style='width: 100%' th:field="*{privateSnippet}"></textarea>
+					</td>
+				</tr>
+				<tr th:if="${activeUser != null and activeUser.admin}">
+					<td>Is admin:</td>
+					<td><input type='radio' th:field="*{admin}" th:value="true" />Yes
+						<input type='radio' th:field="*{admin}" th:value="false" />No</td>
+				</tr>
+				<tr>
+					<td>Is author:</td>
+					<td><input type='radio' th:field="*{author}" th:value="true" />Yes
+						<input type='radio' th:field="*{author}" th:value="false" />No</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td align='right'><input type='submit' value='Save edited account' />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>

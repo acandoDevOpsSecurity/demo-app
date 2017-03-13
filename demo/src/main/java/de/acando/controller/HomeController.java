@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import de.acando.dao.SnippetDao;
 import de.acando.dao.UserDao;
 import de.acando.jpa.User;
-import de.acando.user_mgmt.ActiveUser;
+import de.acando.user_mgmt.LoggedInUser;
 import de.acando.jpa.Snippet;
 
 @Controller
@@ -36,16 +36,11 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView startpage(HttpServletRequest request) throws Exception {
 		ModelAndView mav = new ModelAndView("home");
-		mav.addObject("activeUser", ActiveUser.getActiveUser());
+		mav.addObject("activeUser", LoggedInUser.getActiveUser());
 		
 		List<Snippet> snippets = new ArrayList<>();
 		snippetDao.findAll().iterator().forEachRemaining(snippets::add);		
 		mav.addObject("snippets", snippets);
-		System.out.println("size = "+snippets.size());
-		
-		User user = userDao.findOne(1);
-		System.out.println("user="+user.getName());
-		System.out.println("isAdmin="+user.isAdmin());		
 		
 		return mav;
 	}

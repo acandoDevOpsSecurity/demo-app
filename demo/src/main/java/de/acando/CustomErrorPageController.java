@@ -41,13 +41,11 @@ public class CustomErrorPageController implements ErrorController{
 				try {
 					path = java.net.URLDecoder.decode((String)entry.getValue(), "UTF-8");
 				} catch (UnsupportedEncodingException e) {
-					System.out.println("fuxkc");
 					e.printStackTrace();
 				}
-				System.out.println("unescaping url to introduce a XSS vuln. "+path);
+				System.out.println("Unescaping url to introduce a XSS vuln. "+path);
 				mav.addObject(entry.getKey(), path);
 				mav.addObject("test",path);
-				System.out.println("+++");
 			}else{
 				mav.addObject(entry.getKey(), entry.getValue());
 			}

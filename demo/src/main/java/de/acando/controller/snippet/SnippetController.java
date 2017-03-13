@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import de.acando.dao.SnippetDao;
 import de.acando.dao.UserDao;
 import de.acando.jpa.Snippet;
-import de.acando.user_mgmt.ActiveUser;
+import de.acando.user_mgmt.LoggedInUser;
 
 @Controller
 public class SnippetController {
@@ -28,7 +28,7 @@ public class SnippetController {
 	@RequestMapping(value = "/snippet/new-snippet", method = RequestMethod.GET)
 	public ModelAndView startpage(HttpServletRequest request) throws Exception {
 		ModelAndView mav = new ModelAndView("create-snippet");		
-		mav.addObject("activeUser", ActiveUser.getActiveUser());
+		mav.addObject("activeUser", LoggedInUser.getActiveUser());
 		return mav;
 	}
 
@@ -37,12 +37,10 @@ public class SnippetController {
 	public String saveSnippet(@RequestBody final MultiValueMap<String, String > paramMap) throws Exception {
 	
 		Snippet snippet = new Snippet();
-		snippet.setUser(ActiveUser.getActiveUser());
+		snippet.setUser(LoggedInUser.getActiveUser());
 		String snippetText = paramMap.get("snippet").get(0);
 		snippet.setText(snippetText);
 		snippetDao.save(snippet);
-		System.out.println("form params received " + paramMap);
-		System.out.println("+++"+snippet.getText());
 		return "redirect:" + "/home";
 	}
 }

@@ -5,7 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import de.acando.jpa.User;
 
-public class ActiveUser {
+public class LoggedInUser {
 
 	public static User getActiveUser() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -19,4 +19,5 @@ public class ActiveUser {
 		} else
 			return null;
 	}
+	
 }
