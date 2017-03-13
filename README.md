@@ -11,3 +11,4 @@ login with name/password, see src/main/resources/data.sql
 2. **stored XSS**, e.g. create a snippet with the following text: ```<script>alert('hi')</script>```
 3. **DoS** - Quit the server, do a POST request to http://localhost:8080/admin/shutdown with an authorized admin-user (e.g. by spoofing or elevation of privilege, see below)
 4. **Elevation of Privilege** - set role admin to any user, e.g [fake the save request] (Elevation-of-Privilege.JPG)
+5. **Information Disclosure** - get knowledge about server configuration, endpoints, ... Nowadays many Spring Boot applications make use of [Spring Boot Actuator] (Information-Disclosure.JPG) 
