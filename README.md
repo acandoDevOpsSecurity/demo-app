@@ -1,5 +1,5 @@
 # demo-app
-Demo Application for DevOps Security testing 
+Demo Application for DevOps Security testing. For more info about the app, see [https://google-gruyere.appspot.com/part1] (https://google-gruyere.appspot.com/part1)
 
 ### Run with Eclipse
 Add VM arugments to your run configuration (spring profiles are not in use yet)
