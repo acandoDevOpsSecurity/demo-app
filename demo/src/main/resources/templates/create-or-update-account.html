@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New account</title>
+<script src="/js/lib.js" text="text/javascript" />
+<link href="/css/base.css" rel="stylesheet" />
+</head>
+<body>
+	<div th:include="menubar :: menubar"></div>
+
+	<div class='content'>
+		<h3>Sign up for a new account.</h3>
+		<form method='post' th:action='@{/save-profile}' th:object='${newUser}'>
+			<input type='hidden' name='action' value='new' />
+			<table>
+				<tr>
+					<td>User name:</td>
+					<td><input type='text' th:field="*{name}" maxlength='16' />
+					</td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type='password' th:field="*{password}" /> <br /> <span
+						style="color: red"><b>WARNING: Gruyere is not secure.<br />
+								Do not use a password that you use for any real service.<br />
+								Do not upload any personal or private data.
+						</b></span></td>
+				</tr>
+				<!-- <tr th:if="${activeUser != null and activeUser.admin}">
+					<td>Is admin:</td>
+					<td><radiobutto path='isAdmin' value='True' />Yes
+						<radiobutto path='isAdmin' value='False' checked="checked" />No
+					</td>
+				</tr>
+				<tr>
+					<td>Is author:</td>
+					<td><radiobutto path='isAuthor' value='True' checked="checked" />Yes
+						<radiobutto path='isAuthor' value='False' />No</td>
+				</tr>
+				<span th:unless="${activeUser != null and activeUser.admin}"> <input type='hidden'
+					th:field="*{isAuthor}" value='True' />
+				</span> -->
+				<tr>
+					<td></td>
+					<td align='right'><input type='submit' value='Create account' />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>

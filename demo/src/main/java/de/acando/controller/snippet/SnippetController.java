@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import de.acando.dao.SnippetDao;
 import de.acando.dao.UserDao;
 import de.acando.jpa.Snippet;
-import de.acando.security.ActiveUser;
+import de.acando.user_mgmt.ActiveUser;
 
 @Controller
 public class SnippetController {
@@ -27,7 +27,7 @@ public class SnippetController {
 	
 	@RequestMapping(value = "/snippet/new-snippet", method = RequestMethod.GET)
 	public ModelAndView startpage(HttpServletRequest request) throws Exception {
-		ModelAndView mav = new ModelAndView("newsnippet");		
+		ModelAndView mav = new ModelAndView("create-snippet");		
 		mav.addObject("activeUser", ActiveUser.getActiveUser());
 		return mav;
 	}

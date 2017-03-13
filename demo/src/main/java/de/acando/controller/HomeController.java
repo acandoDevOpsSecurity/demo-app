@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import de.acando.dao.SnippetDao;
 import de.acando.dao.UserDao;
 import de.acando.jpa.User;
-import de.acando.security.ActiveUser;
+import de.acando.user_mgmt.ActiveUser;
 import de.acando.jpa.Snippet;
 
 @Controller

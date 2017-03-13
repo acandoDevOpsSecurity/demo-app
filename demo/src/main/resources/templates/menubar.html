@@ -4,38 +4,35 @@
 <head>
 </head>
 <body>
-
-<div th:fragment="menubar">
-
-<div class='menu'>
-  <span id='menu-left'>
-    <a href='/'>Home</a>
-      <span th:if="${activeUser} != null">
-      	| <a href='/snippet/snippets'>My&nbsp;Snippets</a>
-      	| <a href='/snippet/new-snippet'>New&nbsp;Snippet</a>
-      	| <a href='/upload'>Upload</a>
-      </span>
-  </span>
-  <span id='menu-right'>
-      <span th:if="${activeUser} != null">
-      	<span class='menu-user'>
-        	<span th:text="${activeUser.name}"></span> &lt;{{_cookie.uid}}&gt;
-      	</span>
-      
-      	<span th:if="${activeUser.admin}">
-      		| <a href='/manage'>Manage this server</a>
-      	</span>
-      	| <a href='/editprofile'>Profile</a>
-      	| <a href='/logout'>Sign out</a>
-      </span>
-      
-      <span th:if="${activeUser} == null">
-      	<a href='/login'>Sign in</a>
-      	| <a href='/newaccount'>Sign up</a>
-      </span>
-  </span>
-</div>
-
-</div>
+	<div th:fragment="menubar">	
+		<div class='menu'>
+		  <span id='menu-left'>
+		    <a href='/'>Home</a>
+		      <span th:if="${activeUser} != null">
+		      	| <a href='/snippet/snippets'>My&nbsp;Snippets</a>
+		      	| <a href='/snippet/new-snippet'>New&nbsp;Snippet</a>
+		      	| <a href='/upload'>Upload</a>
+		      </span>
+		  </span>
+		  <span id='menu-right'>
+		      <span th:if="${activeUser} != null">
+		      	<span class='menu-user'>
+		        	<span th:text="${activeUser.name}"></span> &lt;{{_cookie.uid}}&gt;
+		      	</span>
+		      
+		      	<span th:if="${activeUser.admin}">
+		      		| <a href='/manage'>Manage this server</a>
+		      	</span>
+		      	| <a href='/editprofile'>Profile</a>
+		      	| <a href='/logout'>Sign out</a>
+		      </span>
+		      
+		      <span th:if="${activeUser} == null">
+		      	<a href='/login'>Sign in</a>
+		      	| <a href='/new-account'>Sign up</a>
+		      </span>
+		  </span>
+		</div>	
+	</div>
 </body>
 </html>

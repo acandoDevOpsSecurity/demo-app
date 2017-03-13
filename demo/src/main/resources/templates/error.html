@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ERROR</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div id="error-page" class="margin-top-25">
+            <h1>
+                <span th:text="${status}"></span> - <span th:text="${error}"></span>
+            </h1>
+            <p>
+                <span>Entschuldigung, das hätte nicht passieren dürfen.</span> <a href="javascript:;" onclick="history.back()">Zurück zur vorherigen Seite</a>
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div>
+                        <span th:text="${timestamp}"></span> |
+                        <span th:text="${path}"></span>
+                         a<span th:text="${path}"></span>
+                        b<span th:utext="${test}"></span>
+                        c<span th:text="${test}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <code>
+                    <span th:text="${message}"></span>
+                    <span th:text="${stacktrace}"></span>
+                </code>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
