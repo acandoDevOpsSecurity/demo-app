@@ -48,8 +48,10 @@ public class GruyereAuthenticationProvider implements AuthenticationProvider {
 		grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));		
 		if (user.isAuthor())
 			grantedAuths.add(new SimpleGrantedAuthority("ROLE_AUTHOR"));
-		if (user.isAdmin())
+		if (user.isAdmin()){
 			grantedAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+			grantedAuths.add(new SimpleGrantedAuthority("ROLE_ACTUATOR"));
+		}
 
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, null, grantedAuths);
 		return token;
