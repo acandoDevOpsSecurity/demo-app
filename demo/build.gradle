@@ -35,4 +35,5 @@ dependencies {
 compile 'org.apache.commons:commons-lang3:3.5'
 	runtime('org.hsqldb:hsqldb')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile 'junit:junit:4.12'
 }
