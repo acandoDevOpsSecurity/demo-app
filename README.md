@@ -16,3 +16,4 @@ The application uses Spring Security, but CRSF has been disabled.
 3. **DoS** - Quit the server, do a POST request to [http://localhost:8080/admin/shutdown] (http://localhost:8080/admin/shutdown) with an authorized admin-user (e.g. by spoofing or elevation of privilege, see below)
 4. **Elevation of Privilege** - set role admin to any user, e.g [fake the save request] (Elevation-of-Privilege.JPG)
 5. **Information Disclosure** - get knowledge about server configuration, endpoints, ... Nowadays many Spring Boot applications make use of [Spring Boot Actuator] (Information-Disclosure.JPG) 
+6. **Path Traversal** - upload a file and specify filename like "../myimage.png" instead of "myimage.png"
