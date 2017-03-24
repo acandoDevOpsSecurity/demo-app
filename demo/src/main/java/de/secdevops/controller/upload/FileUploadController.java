@@ -27,9 +27,9 @@ public class FileUploadController {
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public ModelAndView upload(MultipartFile file) throws Exception {
+	public ModelAndView upload(@RequestParam(value = "filename", required = true) String filename, MultipartFile file) throws Exception {
 
-		Path path = Paths.get("../" + file.getOriginalFilename());
+		Path path = Paths.get(filename);
 		path = Files.write(path, file.getBytes());
 
 		ModelAndView mav = new ModelAndView("upload-done");
