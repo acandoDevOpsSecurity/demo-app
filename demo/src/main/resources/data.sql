@@ -1,9 +1,9 @@
-INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (1,'Admin','password',FALSE,TRUE,'no-image-yet','Hi, ich bin der <strong>mächtige Administrator</strong> dieses Systems.','www.acando.de','blue');
-INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (2,'Shushant','password',TRUE,FALSE,'no-image-yete','Lorem ipsum text goes here....','http://www.acando.de','#ff9900');
-INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (3,'Benjamin','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.acando.de','#ff3399');
-INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (4,'Andreas','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.acando.de','green');
-INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (5,'Michael','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.acando.de','#00ccff');
-INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (6,'Frank','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.acando.de','#660000');
+INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (1,'Admin','password',FALSE,TRUE,'no-image-yet','Hi, ich bin der <strong>mächtige Administrator</strong> dieses Systems.','www.google.de','blue');
+INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (2,'Shushant','password',TRUE,FALSE,'no-image-yete','Lorem ipsum text goes here....','http://www.google.de','#ff9900');
+INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (3,'Benjamin','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.google.de','#ff3399');
+INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (4,'Andreas','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.google.de','green');
+INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (5,'Michael','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.google.de','#00ccff');
+INSERT INTO PUBLIC.APPUSER (id, name, password, is_author, is_admin, icon, private_snippet, website, color) VALUES (6,'Frank','password',TRUE,FALSE,'no-image-yet','Lorem ipsum text goes here....','http://www.google.de','#660000');
 
 INSERT INTO PUBLIC.SNIPPET (id, user_id, text) VALUES (1,2,'Heute hacken wir');
 INSERT INTO PUBLIC.SNIPPET (id, user_id, text) VALUES (2,2,'Denn alles wird aus Hack gemacht');

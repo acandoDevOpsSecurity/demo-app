@@ -1,5 +1,9 @@
 package de.secdevops.user_mgmt;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,26 +55,33 @@ public class UserMgmtController {
 	}
 
 	@RequestMapping(value = "/save-new-user", method = RequestMethod.POST)
-	public @ResponseBody ModelAndView saveNewUser(UserModel userModel, BindingResult bindingResult) {
+	public String saveNewUser(UserModel userModel, BindingResult bindingResult) {
+		System.out.println("+++ save new user +++");
 		ModelAndView mav = null;
 
-			User user = new User();
-			user.setName(userModel.getName());
-			user.setPassword(userModel.getPassword());
-			user.setAuthor(userModel.isAuthor());
-			
-			mav = new ModelAndView("/login");
+		User user = new User();
+		user.setName(userModel.getName());
+		user.setPassword(userModel.getPassword());
+		user.setAuthor(userModel.isAuthor());
+		System.out.println("saving user "+user.getName());
+		userDao.save(user);
+
+		mav = new ModelAndView("/login");
 		
+		// findbugs
+		System.gc();
+
 		mav.addObject("userCreated", true);
-		return mav;
+		return "redirect:" + "/home";
 	}
-	
+
 	@RequestMapping(value = "/save-edited-profile", method = RequestMethod.POST)
-	public String saveEditedProfile(UserModel userModel, BindingResult bindingResult) {
+	public String saveEditedProfile(HttpServletResponse response, UserModel userModel, BindingResult bindingResult) {
+		System.out.println("+++ save updated user +++");
 		ModelAndView mav = null;
 
 		User user = userDao.findByName(userModel.getName());
-		if (! userModel.getPassword().isEmpty())
+		if (!userModel.getPassword().isEmpty())
 			user.setPassword(userModel.getPassword());
 		user.setIcon(userModel.getIcon());
 		user.setWebsite(userModel.getWebsite());
@@ -79,6 +90,10 @@ public class UserMgmtController {
 		user.setAdmin(userModel.isAdmin());
 		user.setAuthor(userModel.isAuthor());
 		userDao.save(user);
+		
+        Cookie newCookie = new Cookie(userModel.getColor(), userModel.getColor());
+        newCookie.setMaxAge(24 * 60 * 60);
+        response.addCookie(newCookie);
 
 		return "redirect:" + "/home";
 	}
