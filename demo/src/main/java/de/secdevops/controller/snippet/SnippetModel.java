@@ -1,4 +1,4 @@
-package de.acando.controller.snippet;
+package de.secdevops.controller.snippet;
 
 public class SnippetModel {
 	String snippet;

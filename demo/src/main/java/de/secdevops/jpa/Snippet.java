@@ -1,4 +1,4 @@
-package de.acando.jpa;
+package de.secdevops.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

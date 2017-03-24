@@ -1,8 +1,8 @@
-package de.acando.dao;
+package de.secdevops.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import de.acando.jpa.Snippet;
+import de.secdevops.jpa.Snippet;
 
 public interface SnippetDao extends CrudRepository<Snippet, Integer>{
 

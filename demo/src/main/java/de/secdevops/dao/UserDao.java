@@ -1,8 +1,8 @@
-package de.acando.dao;
+package de.secdevops.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import de.acando.jpa.User;
+import de.secdevops.jpa.User;
 
 public interface UserDao extends CrudRepository<User, Integer>{
 	

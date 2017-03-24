@@ -1,4 +1,4 @@
-package de.acando.controller;
+package de.secdevops.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.acando.dao.SnippetDao;
-import de.acando.dao.UserDao;
-import de.acando.jpa.User;
-import de.acando.user_mgmt.LoggedInUser;
-import de.acando.jpa.Snippet;
+import de.secdevops.dao.SnippetDao;
+import de.secdevops.dao.UserDao;
+import de.secdevops.jpa.Snippet;
+import de.secdevops.jpa.User;
+import de.secdevops.user_mgmt.LoggedInUser;
 
 @Controller
 public class HomeController {

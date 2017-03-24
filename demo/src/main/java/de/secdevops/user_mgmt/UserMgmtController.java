@@ -1,4 +1,4 @@
-package de.acando.user_mgmt;
+package de.secdevops.user_mgmt;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.acando.dao.UserDao;
-import de.acando.jpa.User;
+import de.secdevops.dao.UserDao;
+import de.secdevops.jpa.User;
 
 @Controller
 public class UserMgmtController {

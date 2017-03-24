@@ -1,9 +1,9 @@
-package de.acando.user_mgmt;
+package de.secdevops.user_mgmt;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import de.acando.jpa.User;
+import de.secdevops.jpa.User;
 
 public class LoggedInUser {
 

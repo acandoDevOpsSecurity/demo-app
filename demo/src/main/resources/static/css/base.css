@@ -1,13 +1,10 @@
-/*<style>*/
-/* Copyright 2010 Google Inc. */
-
 body, html, td, span, div, input, textarea {
   font-family: sans-serif;
   font-size: 14pt;
 }
 
 body {
-  background: url('/images/cheese.png') top center repeat;
+  background-color: #385988;
   text-align: center;
   opacity: 0.80;
 }
@@ -42,9 +39,9 @@ a.button:visited {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  background: #ffffcc;
+  background: #ffffff;
   padding: 20px;
-  border: 3px solid #ffb149;
+  border: 3px solid #ff6c2f;
 }
 
 .menu {
@@ -54,8 +51,8 @@ a.button:visited {
   margin-right: auto;
   margin-top: 20px;
   width: 90%;
-  background: #ffffcc;
-  border: 3px solid #ffb149;
+  background: #ffffff;
+  border: 3px solid #ff6c2f;
 }
 
 .menu-user {

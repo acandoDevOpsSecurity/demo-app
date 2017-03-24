@@ -1,4 +1,4 @@
-package de.acando;
+package de.secdevops;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

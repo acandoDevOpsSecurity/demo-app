@@ -1,4 +1,4 @@
-package de.acando.controller.snippet;
+package de.secdevops.controller.snippet;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.acando.dao.SnippetDao;
-import de.acando.dao.UserDao;
-import de.acando.jpa.Snippet;
-import de.acando.user_mgmt.LoggedInUser;
+import de.secdevops.dao.SnippetDao;
+import de.secdevops.dao.UserDao;
+import de.secdevops.jpa.Snippet;
+import de.secdevops.user_mgmt.LoggedInUser;
 
 @Controller
 public class SnippetController {

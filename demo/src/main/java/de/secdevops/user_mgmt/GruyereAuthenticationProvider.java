@@ -1,4 +1,4 @@
-package de.acando.user_mgmt;
+package de.secdevops.user_mgmt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
-import de.acando.dao.UserDao;
-import de.acando.jpa.User;
+import de.secdevops.dao.UserDao;
+import de.secdevops.jpa.User;
 
 @Service
 public class GruyereAuthenticationProvider implements AuthenticationProvider {

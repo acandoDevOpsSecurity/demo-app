@@ -1,4 +1,4 @@
-package de.acando;
+package de.secdevops;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
