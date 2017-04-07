@@ -63,4 +63,10 @@ task findSecurityBugs(type: FindBugs) {
         includeFilter = file("$rootProject.projectDir/fsb-include.xml")
         excludeFilter = file("$rootProject.projectDir/fsb-exclude.xml")
     }
+    
+    dependencyCheck {
+    	autoUpdate=true
+    	cveValidForHours=10
+    	format='ALL'
+	}
 }
