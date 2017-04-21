@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'findbugs'
+apply plugin: 'pmd'
 
 jar {
 	baseName = 'demo'
@@ -61,4 +62,28 @@ task findSecurityBugs(type: FindBugs) {
         includeFilter = file("$rootProject.projectDir/fsb-include.xml")
         excludeFilter = file("$rootProject.projectDir/fsb-exclude.xml")
     }
+}
+
+pmd {
+    toolVersion = '5.5.5'
+    ignoreFailures = true
+	sourceSets = [sourceSets.main]
+	reportsDir = file("$project.buildDir/reports/pmd")
+	ruleSets = [
+	  "basic",
+	  "braces"
+	]
+}
+
+check << {
+  File outDir = new File('build/reports/pmd/')
+  outDir.mkdirs()
+  ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
+    classpath: configurations.pmd.asPath)
+  ant.cpd(minimumTokenCount: '100', format: 'xml',
+    outputFile: new File(outDir , 'cpd.xml')) {
+    fileset(dir: "src/main/java") {
+      include(name: '**/*.java')
+    }
+  }
 }
