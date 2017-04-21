@@ -3,6 +3,6 @@
     <Match>
         <Confidence value="2"/>
         <Rank value="15"/>
-        <Bug category="SECURITY,PERFORMANCE,MALICIOUS_CODE"/>
+        <Bug category="SECURITY,PERFORMANCE,MALICIOUS_CODE,BAD_PRACTICICE,STYLE,CORRECTNESS"/>
     </Match>
 </FindBugsFilter>

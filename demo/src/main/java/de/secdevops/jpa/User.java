@@ -93,4 +93,8 @@ public class User {
 	public void setSnippets(List<Snippet> snippets) {
 		this.snippets = snippets;
 	}    
+	
+	public Object clone() {
+		return null;
+	}
 }
