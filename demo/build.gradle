@@ -14,9 +14,10 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'findbugs'
-apply plugin: 'pmd'
 apply plugin: 'org.owasp.dependencycheck'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+
 
 jar {
 	baseName = 'demo'
