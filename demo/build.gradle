@@ -50,9 +50,9 @@ compile 'org.apache.commons:commons-lang3:3.5'
 
 
 tasks.withType(FindBugs) {
-	classes = files("$buildDir/libs")
-    source = fileTree('src/main/java/')
-    classpath = files()
+//	classes = files("$buildDir/libs")
+//    source = fileTree('src/main/java/')
+//   classpath = files()
 	ignoreFailures = true
     effort = "max"
     reportLevel = "high"
