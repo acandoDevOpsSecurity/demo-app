@@ -44,7 +44,7 @@ compile 'org.apache.commons:commons-lang3:3.5'
 	
 	findbugs 'com.google.code.findbugs:findbugs:3.0.0'
     findbugs configurations.findbugsPlugins.dependencies
-    findbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.2.0'
+    findbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.6.0'
 }
 
 
