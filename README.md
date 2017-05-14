@@ -17,3 +17,6 @@ The application uses Spring Security, but CRSF has been disabled.
 4. **Elevation of Privilege** - set role admin to any user, e.g [fake the save request] (Elevation-of-Privilege.JPG)
 5. **Information Disclosure** - get knowledge about server configuration, endpoints, ... Nowadays many Spring Boot applications make use of [Spring Boot Actuator] (Information-Disclosure.JPG) 
 6. **Path Traversal** - upload a file and specify filename like "../myimage.png" instead of "myimage.png"
+
+### Appsensor integration
+Use of appsensor-local with spring-security integration. You can perform a test by exploiting the path traversal vulnerability. Three-step responses, see [appsensor-server-config](https://github.com/devOpsSecurity/demo-app/blob/master/demo/src/main/resources/appsensor-server-config.xml) RE8 detection-point.
