@@ -1,4 +1,4 @@
-package de.secdevops.user_mgmt;
+package de.secdevops.demo.home;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

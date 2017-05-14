@@ -1,4 +1,4 @@
-package de.secdevops.controller.snippet;
+package de.secdevops.demo.snippets;
 
 public class SnippetModel {
 	String snippet;

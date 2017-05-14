@@ -1,4 +1,4 @@
-package de.secdevops.jpa;
+package de.secdevops.demo.snippets;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +9,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import de.secdevops.user.UserEntity;
+
 @Entity
 @Table(name = "SNIPPET")
 public class Snippet {
 	private int id;
-	private User user;
+	private UserEntity user;
 	private String text;
 	
 	@Id
@@ -28,10 +30,10 @@ public class Snippet {
 	
 	@ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 	public String getText() {

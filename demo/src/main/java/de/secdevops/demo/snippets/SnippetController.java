@@ -1,4 +1,4 @@
-package de.secdevops.controller.snippet;
+package de.secdevops.demo.snippets;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.secdevops.dao.SnippetDao;
-import de.secdevops.dao.UserDao;
-import de.secdevops.jpa.Snippet;
-import de.secdevops.user_mgmt.LoggedInUser;
+import de.secdevops.user.UserUtils;
+import de.secdevops.user.UserEntity;
+import de.secdevops.user.UserRepository;
 
 @Controller
 public class SnippetController {
@@ -23,12 +22,12 @@ public class SnippetController {
 	SnippetDao snippetDao;
 	
 	@Autowired
-	UserDao userDao;
+	UserRepository userDao;
 	
 	@RequestMapping(value = "/snippet/new-snippet", method = RequestMethod.GET)
 	public ModelAndView startpage(HttpServletRequest request) throws Exception {
 		ModelAndView mav = new ModelAndView("create-snippet");		
-		mav.addObject("activeUser", LoggedInUser.getActiveUser());
+		mav.addObject("activeUser", UserUtils.getActiveUser());
 		return mav;
 	}
 
@@ -37,7 +36,8 @@ public class SnippetController {
 	public String saveSnippet(@RequestBody final MultiValueMap<String, String > paramMap) throws Exception {
 	
 		Snippet snippet = new Snippet();
-		snippet.setUser(LoggedInUser.getActiveUser());
+		UserEntity appUser = UserUtils.getActiveUser();
+		snippet.setUser(appUser);
 		String snippetText = paramMap.get("snippet").get(0);
 		snippet.setText(snippetText);
 		snippetDao.save(snippet);

@@ -1,4 +1,4 @@
-package de.secdevops.jpa;
+package de.secdevops.user;
 
 import java.util.List;
 
@@ -12,14 +12,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import de.secdevops.demo.snippets.Snippet;
+
 @Entity
 @Table(name = "APPUSER")
-public class User {
+public class UserEntity {
 	private int id;
     private String name;
     private String password;
     private boolean isAuthor;
     private boolean isAdmin;
+    private boolean isLocked;
     private String icon;
     private String privateSnippet;
     private String website;
@@ -94,6 +97,13 @@ public class User {
 		this.snippets = snippets;
 	}    
 	
+	@Column(name = "is_locked")
+	public boolean isLocked() {
+		return isLocked;
+	}
+	public void setLocked(boolean isLocked) {
+		this.isLocked = isLocked;
+	}
 	public Object clone() {
 		return null;
 	}

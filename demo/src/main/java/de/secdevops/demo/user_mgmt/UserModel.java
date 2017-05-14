@@ -1,4 +1,4 @@
-package de.secdevops.user_mgmt;
+package de.secdevops.demo.user_mgmt;
 
 public class UserModel {
 	private String name;

@@ -1,4 +1,4 @@
-package de.secdevops.user_mgmt;
+package de.secdevops.demo.user_mgmt;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -14,19 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.secdevops.dao.UserDao;
-import de.secdevops.jpa.User;
+import de.secdevops.user.UserUtils;
+import de.secdevops.user.UserEntity;
+import de.secdevops.user.UserRepository;
 
 @Controller
 public class UserMgmtController {
 
 	@Autowired
-	UserDao userDao;
+	UserRepository userDao;
 
 	@RequestMapping(value = "/new-account", method = RequestMethod.GET)
 	public @ResponseBody ModelAndView createAccount(Model model) {
 		ModelAndView mav = new ModelAndView("create-account");
-		mav.addObject("activeUser", LoggedInUser.getActiveUser());
+		mav.addObject("activeUser", UserUtils.getActiveUser());
 
 		UserModel newUser = new UserModel();
 		newUser.setAdmin(false);
@@ -40,9 +41,9 @@ public class UserMgmtController {
 	@RequestMapping(value = "/edit-account", method = RequestMethod.GET)
 	public @ResponseBody ModelAndView updateAccount(Model model) {
 		ModelAndView mav = new ModelAndView("update-account");
-		mav.addObject("activeUser", LoggedInUser.getActiveUser());
+		mav.addObject("activeUser", UserUtils.getActiveUser());
 
-		User user = LoggedInUser.getActiveUser();
+		UserEntity user = UserUtils.getActiveUser();
 		// since user object might be updated in DB in the meanwhile, don't rely
 		// on the user stored in the UsernamePasswordToken
 		user = userDao.findOne(user.getId());
@@ -59,7 +60,7 @@ public class UserMgmtController {
 		System.out.println("+++ save new user +++");
 		ModelAndView mav = null;
 
-		User user = new User();
+		UserEntity user = new UserEntity();
 		user.setName(userModel.getName());
 		user.setPassword(userModel.getPassword());
 		user.setAuthor(userModel.isAuthor());
@@ -80,7 +81,7 @@ public class UserMgmtController {
 		System.out.println("+++ save updated user +++");
 		ModelAndView mav = null;
 
-		User user = userDao.findByName(userModel.getName());
+		UserEntity user = userDao.findByName(userModel.getName());
 		if (!userModel.getPassword().isEmpty())
 			user.setPassword(userModel.getPassword());
 		user.setIcon(userModel.getIcon());

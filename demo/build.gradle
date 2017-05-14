@@ -37,10 +37,19 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-compile 'org.apache.commons:commons-lang3:3.5'
+	compile 'org.apache.commons:commons-lang3:3.5'
 	runtime('org.hsqldb:hsqldb')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile 'junit:junit:4.12'
+	
+	compile group: 'org.owasp.appsensor', name: 'appsensor-core', version: '2.3.2'
+	compile group: 'org.owasp.appsensor', name: 'appsensor-local', version: '2.3.2'
+	compile group: 'org.owasp.appsensor', name: 'appsensor-storage-in-memory', version: '2.3.2'	
+	compile group: 'org.owasp.appsensor', name: 'appsensor-analysis-reference', version: '2.3.2'
+	compile group: 'org.owasp.appsensor', name: 'appsensor-reporting-simple-logging', version: '2.3.2'
+	compile group: 'org.owasp.appsensor', name: 'appsensor-access-control-reference', version: '2.3.2'
+	compile group: 'org.owasp.appsensor', name: 'appsensor-configuration-stax', version: '2.3.2'
+	compile group: 'org.owasp.appsensor', name: 'appsensor-integration-spring-security', version: '2.3.2'
 	
 	findbugs 'com.google.code.findbugs:findbugs:3.0.0'
     findbugs configurations.findbugsPlugins.dependencies
