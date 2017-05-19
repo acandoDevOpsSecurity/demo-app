@@ -40,7 +40,8 @@ dependencies {
 	compile 'org.apache.commons:commons-lang3:3.5'
 	runtime('org.hsqldb:hsqldb')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	compile 'junit:junit:4.12'
+	testCompile('org.springframework.security:spring-security-test')
+	testCompile 'junit:junit:4.12'
 	
 	compile group: 'org.owasp.appsensor', name: 'appsensor-core', version: '2.3.2'
 	compile group: 'org.owasp.appsensor', name: 'appsensor-local', version: '2.3.2'

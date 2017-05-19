@@ -10,9 +10,11 @@
             <h1>
                 <span th:text="${status}"></span> - <span th:text="${error}"></span>
             </h1>
-            <p>
-                <span>Entschuldigung, das hätte nicht passieren dürfen.</span> <a href="javascript:;" onclick="history.back()">Zurück zur vorherigen Seite</a>
-            </p>
+            <div>
+                <h2>Oh noooooooo....</h2> 
+                <h3>You ruined everything!</h3>
+                <a href="javascript:;" onclick="history.back()">back to previous page</a>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div>
@@ -23,8 +25,8 @@
             </div>
             <div class="panel-body">
                 <code>
-                    <span th:text="${message}"></span>
-                    <span th:text="${stacktrace}"></span>
+                    <strong style="color:red" th:text="${message}"></strong>
+                    <span style="color:red" th:text="${stacktrace}"></span>
                 </code>
             </div>
         </div>

@@ -125,12 +125,12 @@
 				<interval unit="hours">24</interval>
 			</threshold>
 			<responses>
- 				<response>
+<!-- 				<response>
 					<action>log</action>
 				</response>
 				<response>
 					<action>logout</action>
-				</response>
+				</response>-->
 				<response>
 					<action>disableUser</action>
 				</response>
