@@ -25,13 +25,7 @@
 			</threshold>
 			<responses>
 				<response>
-					<action>log</action>
-				</response>
-				<response>
 					<action>logout</action>
-				</response>
-				<response>
-					<action>disableUser</action>
 				</response>
 			</responses>
 		</detection-point>
@@ -125,12 +119,6 @@
 				<interval unit="hours">24</interval>
 			</threshold>
 			<responses>
-<!-- 				<response>
-					<action>log</action>
-				</response>
-				<response>
-					<action>logout</action>
-				</response>-->
 				<response>
 					<action>disableUser</action>
 				</response>

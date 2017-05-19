@@ -39,9 +39,12 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile 'org.apache.commons:commons-lang3:3.5'
 	runtime('org.hsqldb:hsqldb')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.security:spring-security-test')
-	compile 'junit:junit:4.12'
+	compile group: 'com.googlecode.owasp-java-html-sanitizer', name: 'owasp-java-html-sanitizer', version: 'r239'
+	
+	// should be testCompile
+	compile('org.springframework.boot:spring-boot-starter-test')
+	compile('org.springframework.security:spring-security-test')
+	compile('junit:junit:4.12')
 	
 	compile group: 'org.owasp.appsensor', name: 'appsensor-core', version: '2.3.2'
 	compile group: 'org.owasp.appsensor', name: 'appsensor-local', version: '2.3.2'
