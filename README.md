@@ -19,4 +19,8 @@ The application uses Spring Security, but CRSF has been disabled.
 6. **Path Traversal** - upload a file and specify filename like "../myimage.png" instead of "myimage.png"
 
 ### Appsensor integration
-Use of appsensor-local with spring-security integration. You can perform a test by exploiting the path traversal vulnerability. Three-step responses, see [appsensor-server-config](https://github.com/devOpsSecurity/demo-app/blob/master/demo/src/main/resources/appsensor-server-config.xml) RE8 detection-point.
+Use of appsensor-local with spring-security integration, attact detection exemplary. 
+* disables user on the first path traversal attack detection, include a "/" in the filename parameter 
+* disables user on the thrid stored XSS attack detection
+
+appsensor configuration see [appsensor-server-config](https://github.com/devOpsSecurity/demo-app/blob/master/demo/src/main/resources/appsensor-server-config.xml) RE8 detection-point.
