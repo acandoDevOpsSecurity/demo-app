@@ -9,7 +9,6 @@
 		  <span id='menu-left'>
 		    <a href='/'>Home</a>
 		      <span th:if="${activeUser} != null">
-		      	| <a href='/snippet/snippets'>My&nbsp;Snippets</a>
 		      	| <a href='/snippet/new-snippet'>New&nbsp;Snippet</a>
 		      	| <a href='/upload'>Upload</a>
 		      </span>
@@ -17,13 +16,9 @@
 		  <span id='menu-right'>
 		      <span th:if="${activeUser} != null">
 		      	<span class='menu-user'>
-		        	<span th:text="${activeUser.name}"></span> &lt;{{_cookie.uid}}&gt;
+		        	<span th:text="${activeUser.name}"></span>
 		      	</span>
-		      
-		      	<span th:if="${activeUser.admin}">
-		      		| <a href='/manage'>Manage this server</a>
-		      	</span>
-		      	| <a href='/edit-account'>Profile</a>
+		      	| <a href='/edit-account'>Edit Profile</a>
 		      	| <a href='/logout'>Sign out</a>
 		      </span>
 		      

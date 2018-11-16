@@ -39,7 +39,6 @@
 		    </td>
 		    <td width='100%'><span th:id="${snippet.id}" th:utext="${snippet.text}"></span>
 		    <br />
-		          <a th:href="@{'/snippets?uid=' + ${snippet.user.id}}">Snippets of user</a>&nbsp;
 		      <a th:href="@{${snippet.user.website}}">Homepage</a>
 		    <br />
 		    <br /> 
