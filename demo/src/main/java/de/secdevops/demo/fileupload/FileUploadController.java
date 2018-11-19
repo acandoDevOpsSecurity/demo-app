@@ -43,11 +43,12 @@ public class FileUploadController {
 	public ModelAndView upload(@RequestParam(value = "filename", required = true) String filename, MultipartFile file) throws Exception {
 
 		Path path = Paths.get(filename);
-		if (filename.contains("/")){
-			//appsensorUtils.addAttack(Category.REQUEST, "RE8"); //https://www.owasp.org/index.php/AppSensor_DetectionPoints#RE8:_Unexpected_Type_of_Characters_in_Parameter
-			appsensorUtils.addEvent(Category.REQUEST, "RE8");
-			throw new AccessDeniedException("Nice try.");
-		}
+		// This is an unsecure app, so we don't check the entry.
+//		if (filename.contains("/")){
+//			//appsensorUtils.addAttack(Category.REQUEST, "RE8"); //https://www.owasp.org/index.php/AppSensor_DetectionPoints#RE8:_Unexpected_Type_of_Characters_in_Parameter
+//			appsensorUtils.addEvent(Category.REQUEST, "RE8");
+//			throw new AccessDeniedException("Nice try.");
+//		}
 		path = Files.write(path, file.getBytes());
 
 		ModelAndView mav = new ModelAndView("upload-done");

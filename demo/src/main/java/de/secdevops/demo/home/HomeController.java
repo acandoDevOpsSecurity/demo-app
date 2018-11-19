@@ -28,27 +28,30 @@ import de.secdevops.user.UserRepository;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	SnippetDao snippetDao;
-	
+
 	@Autowired
 	UserRepository userDao;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String root(HttpServletRequest request) throws Exception {
-	return "forward:" + "/home";
-    }
-	
+	public String root(HttpServletRequest request) throws Exception {
+		return "forward:" + "/home";
+	}
+
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView startpage(HttpServletRequest request) throws Exception {
 		ModelAndView mav = new ModelAndView("home");
-		mav.addObject("activeUser", UserUtils.getActiveUser());
+		
+		if (UserUtils.getActiveUser() != null) {
+			mav.addObject("activeUser", userDao.findByName(UserUtils.getActiveUser().getName()));
+		} 
 		
 		List<Snippet> snippets = new ArrayList<>();
-		snippetDao.findAll().iterator().forEachRemaining(snippets::add);		
+		snippetDao.findAll().iterator().forEachRemaining(snippets::add);
 		mav.addObject("snippets", snippets);
-			
+
 		return mav;
 	}
 

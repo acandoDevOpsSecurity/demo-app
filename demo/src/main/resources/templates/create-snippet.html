@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>New snippet</title>
-    <script src="/js/lib.js" text="text/javascript" />
-    <link href="/css/base.css" rel="stylesheet" />
+<title>New snippet</title>
+<script src="/js/lib.js" text="text/javascript" />
+<link href="/css/base.css" rel="stylesheet" />
 
 </head>
 <body>
 	<div th:include="menubar :: menubar"></div>
 
+	<div>
+		<div class='has-refresh' id='headline'>
+			<h2>Add a new snippet</h2>
+		</div>
+		<br />
+	</div>
+
+
 	<div class='content'>
-		<h3>Add a new snippet.</h3>
-	
 		<!-- [[if:_message]]
 		<div class='message'>{{_message}}</div>
 		[[/if:_message]]-->
-		
-		<div style='width:600'>
+
+		<div>
 			<form method='post' action='/snippet/save-snippet'>
-				<textarea name='snippet' rows='5' style='width:100%'></textarea>
-				<br />
-				<table summary='' style='width:100%'>
+				<textarea name='snippet' rows='5' style='width: 100%'></textarea>
+				<br /> <br />
+				<table summary='' style='width: 100%'>
 					<tr>
-						<td align='left' valign='top'>
-						  <i>Limited HTML is now supported in snippets (e.g., &lt;b&gt;, &lt;i&gt;,
-						  etc.)!</i>
-						</td>
-						<td align='right' valign='top'>
-						  <input type='submit' value='Submit' />
-						</td>
+						<td align='left' valign='top'><i>Limited HTML is now
+								supported in snippets (e.g., &lt;b&gt;, &lt;i&gt;, etc.)!</i></td>
+						<td align='right' valign='top'><input id="btn" type='submit'
+							value='Submit' /></td>
 					</tr>
 				</table>
 			</form>
 		</div>
-	
+
 	</div>
 
 </body>

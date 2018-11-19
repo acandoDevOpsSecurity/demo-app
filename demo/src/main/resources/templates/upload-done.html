@@ -10,15 +10,15 @@
 <body>
 	<div th:include="menubar :: menubar"></div>
 
-	<div>
+	<div  class='has-refresh' id='headline'>
 		<h2>Upload complete</h2>
+		<br />
 	</div>
 
 	<div class='content'>
-
-		<b> File uploaded!<br /> File accessible at:
+		<b> File uploaded!<br /><br /> File accessible at:
 		</b> <span th:text="${filename}"></span>
-
+		<br /><br />
 	</div>
 
 </body>

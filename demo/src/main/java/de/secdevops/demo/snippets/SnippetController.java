@@ -56,12 +56,13 @@ public class SnippetController {
 		snippet.setUser(appUser);
 		String snippetText = paramMap.get("snippet").get(0);
 		
-		String sanitizedInput = InputSanitizer.sanitize(snippetText);
-		if (! sanitizedInput.equals(snippetText)){
-			logger.warn("XSS attack detected. Notifying AppSensor...");
-			appsensorUtils.addEvent(DetectionPoint.Category.INPUT_VALIDATION, "IE1");
-			throw new AccessDeniedException("YOU SHALL NOT PASS!");
-		}
+		// This is an unsecure app, so we don't check the entry.
+//		String sanitizedInput = InputSanitizer.sanitize(snippetText);
+//		if (! sanitizedInput.equals(snippetText)){
+//			logger.warn("XSS attack detected. Notifying AppSensor...");
+//			appsensorUtils.addEvent(DetectionPoint.Category.INPUT_VALIDATION, "IE1");
+//			throw new AccessDeniedException("YOU SHALL NOT PASS!");
+//		}
 		
 		snippet.setText(snippetText);
 		snippetDao.save(snippet);

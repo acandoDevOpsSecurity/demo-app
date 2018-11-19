@@ -8,26 +8,53 @@
     <title tiles:fragment="title">Messages : Create</title>
   </head>
   <body>
-    <div tiles:fragment="content">
+    <div tiles:fragment="content" class="login">
         <form name="loginform" th:action="@{/login}" method="post" autocomplete="on">               
             <fieldset>
                 <legend>Please Login</legend>
-                <div th:if="${param.error}" class="alert alert-error">    
+                <table>
+                <tr>
+                <td colspan="2">
+                 <div th:if="${param.error}" class="alert alert-error">    
                     Invalid username and password.
                 </div>
-                <div th:if="${param.logout}" class="alert alert-success"> 
+                 <div th:if="${param.logout}" class="alert alert-success"> 
                     You have been logged out.
-                </div>
-                <div th:if="${userCreated}" class="alert alert-success"> 
+                 </div>
+                 <div th:if="${userCreated}" class="alert alert-success"> 
                 	Your user has been created.
                 </div>
+                </td>
+                </tr>
+                
+                <tr>
+                <td>
+
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" />        
+                </td>
+                <td>
+                <input type="text" id="username" name="username" />
+                </td>
+                </tr>
+                
+                <tr>
+                <td>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" />    
+                </td>
+                <td>
+                <input type="password" id="password" name="password" />  
+                </td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>
                 <div class="form-actions">
                     <button type="submit" class="btn">Log in</button>
                 </div>
+                </td>
+                </tr>
+                </table>
+                
             </fieldset>
         </form>
     </div>

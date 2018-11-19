@@ -7,13 +7,14 @@ body {
   background-color: #385988;
   text-align: center;
   opacity: 0.80;
+  min-width: 950px;
 }
 
 h2 {
   text-align: center;
   font-size: 30pt;
   font-weight: bold;
-  margin-bottom: 0;
+  margin-bottom: 1px;
 }
 
 td {
@@ -21,9 +22,14 @@ td {
   padding: 5px;
 }
 
-a, a:hover {
+a {
   text-decoration: underline;
   color: #0000bb;
+}
+
+a:hover{
+	text-decoration: underline;
+  	color: #0000bb;
 }
 
 a:visited {
@@ -31,17 +37,29 @@ a:visited {
 }
 
 a.button:visited {
-  color: #0000bb;
+  color: #385988;
 }
 
 .content {
-  text-align: left;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 80%;
   background: #ffffff;
   padding: 20px;
   border: 3px solid #ff6c2f;
+}
+
+.snippet, .registration, .upload, .profile{
+	text-align: left;
+	display: block;
+    word-wrap: break-word;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.private{
+	text-align: left;
 }
 
 .menu {
@@ -50,7 +68,7 @@ a.button:visited {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-  width: 90%;
+  width: 80%;
   background: #ffffff;
   border: 3px solid #ff6c2f;
 }
@@ -110,4 +128,42 @@ input, textarea {
   margin-bottom: 0;
 }
 
-/*</style>*/
+.login{
+	color: white;
+}
+
+.btn,input#btn{
+	background-color: #736D6A;
+	border:thin;
+    color: white;
+    padding: 5px 80px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.btn:hover, input#btn:hover{
+	background-color: #FF6C2F;
+}
+
+#headline{
+	color: white;
+	color: black;
+	color: #FF6C2F; /*orange*/
+	color: #736D6A; /*dark grey*/
+	color: #385988; /*blue*/
+	color: #F7F4F1; /*light grey*/
+}
+
+#warning{
+	color: #FF6C2F;
+	font-style: italic;
+	font-size: 0.9em;
+	text-align: left;
+	display: block;
+	margin-left: 10px;
+}
+
+textarea {
+	resize: vertical;
+}
+

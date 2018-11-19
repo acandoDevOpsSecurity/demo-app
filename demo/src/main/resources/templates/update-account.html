@@ -9,24 +9,30 @@
 </head>
 <body>
 	<div th:include="menubar :: menubar"></div>
-
+	
+	<div>
+		<div class='has-refresh' id='headline'>
+			<h2>Edit profile</h2>
+		</div>
+		<br />
+	</div>
+	
 	<div class='content'>
-		<h3>Edit account.</h3>
 		<form method='post' th:action='@{/save-edited-profile}' th:object='${user}'>
 			<table>
 				<tr>
 					<td>User name:</td>
-					<td th:text="*{name}"></td>
+					<td th:text="*{name}" class="profile"></td>
 					<input type='hidden' th:field="*{name}" />
 				</tr>
 				<tr>
 					<td>OLD Password:</td>
-					<td><input type='password' th:field="*{oldPassword}" /></td>
+					<td><input class="profile" type='password' th:field="*{oldPassword}" /></td>
 				</tr>
 				<tr>
 					<td>NEW Password:</td>
-					<td><input type='password' th:field="*{password}" /> <br />
-						<span style="color: red"><b>WARNING: Gruyere is not
+					<td><input class="profile" type='password' th:field="*{password}" /> <br />
+						<span style="color: red"><b>WARNING: Unsecure App is not
 								secure.<br /> Do not use a password that you use for any real
 								service.<br /> Do not upload any personal or private data.
 						</b></span></td>

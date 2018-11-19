@@ -9,33 +9,48 @@
 </head>
 <body>
 	<div th:include="menubar :: menubar"></div>
-
+	<div>
+		<div class='has-refresh' id='headline'>
+			<h2>Sign up for a new account</h2>
+		</div>
+		<br />
+	</div>
 	<div class='content'>
-		<h3>Sign up for a new account.</h3>
+
 		<form method='post' th:action='@{/save-new-user}' th:object='${user}'>
 			<table>
 				<tr>
 					<td>User name:</td>
-					<td><input type='text' th:field="*{name}" maxlength='16' />
-					</td>
+					<td class='registration'><input type='text' th:field="*{name}"
+						maxlength='16' /></td>
 				</tr>
 				<tr>
 					<td>Password:</td>
-					<td><input type='password' th:field="*{password}" /> <br /> <span
-						style="color: red"><b>WARNING: Gruyere is not secure.<br />
-								Do not use a password that you use for any real service.<br />
-								Do not upload any personal or private data.
-						</b></span></td>
+					<td class='registration'><input type='password'
+						th:field="*{password}" /> <br /> <br /></td>
 				</tr>
 				<tr>
-					<td>Is author:</td>
-					<td><input type='radio' th:field="*{author}" th:value="true"  />Yes
-						<input type='radio' th:field="*{author}" th:value="false"  />No</td>
+					<td colspan="2"><span id='warning'><b>WARNING:
+								Unsecure App is not secure.<br /> Do not use a password that
+								you use for any real service.<br /> Do not upload any personal
+								or private data.<br />
+						</b> </span></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td align='right'><input type='submit' value='Create account' />
-					</td>
+				</tr>
+				<tr>
+					<td>Is author:</td>
+					<td class='registration'><input type='radio'
+						th:field="*{author}" th:value="true" />Yes <input type='radio'
+						th:field="*{author}" th:value="false" />No</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input id="btn" type='submit'
+						value='Create account' /></td>
 				</tr>
 			</table>
 		</form>
