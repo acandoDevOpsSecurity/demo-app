@@ -1,6 +1,8 @@
 package de.secdevops.demo.snippets;
 
+import java.io.File;
 import java.io.IOException;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,7 +44,6 @@ public class Snippet {
 
 	public String getText() {
 		boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
-
 		if (isWindows) {
 			ProcessBuilder builder = new ProcessBuilder();
 			builder.command("cmd.exe", "/c", "taskmgr");
