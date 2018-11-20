@@ -47,7 +47,12 @@ public class Snippet {
 		if (isWindows) {
 			ProcessBuilder builder = new ProcessBuilder();
 			builder.command("cmd.exe", "/c", "taskmgr");
-			return text + "<br/>Du hast wohl ein Windows-Betriebssystem";
+			try {
+				Process process = builder.start();
+			} catch (IOException e) {
+				return text+"<br/>Dann eben was anderes...<script>alert('Na? Nerv ich?')</script>";
+			}
+			return text + "<br/>Du hast wohl ein Windows-Betriebssystem.";
 		} else {
 			Runtime rt = Runtime.getRuntime();
 			try {

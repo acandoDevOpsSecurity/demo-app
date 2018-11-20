@@ -1,6 +1,5 @@
 package de.secdevops.demo.snippets;
 
-import java.io.IOException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,21 +40,7 @@ public class Snippet {
 	}
 
 	public String getText() {
-		boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
-
-		if (isWindows) {
-			ProcessBuilder builder = new ProcessBuilder();
-			builder.command("cmd.exe", "/c", "taskmgr");
-			return text + "<br/>Du hast wohl ein Windows-Betriebssystem";
-		} else {
-			Runtime rt = Runtime.getRuntime();
-			try {
-				Process pr = rt.exec("/usr/bin/xterm");
-				return text+"<br/>Na, brauchst du einen Terminal?";
-			} catch (IOException e) {
-				return text+"<br/>Dann eben was anderes...<script>alert('Na? Nerv ich?')</script>";
-			}
-		}
+		return text;
 	}
 
 	public void setText(String text) {
