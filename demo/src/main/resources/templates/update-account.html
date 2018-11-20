@@ -22,8 +22,9 @@
 			<table>
 				<tr>
 					<td>User name:</td>
-					<td th:text="*{name}" class="profile"></td>
-					<input type='hidden' th:field="*{name}" />
+					<td th:text="*{name}" class="profile">
+						<input type='hidden' th:field="*{name}" />
+					</td>
 				</tr>
 				<tr>
 					<td>OLD Password:</td>
@@ -31,44 +32,52 @@
 				</tr>
 				<tr>
 					<td>NEW Password:</td>
-					<td><input class="profile" type='password' th:field="*{password}" /> <br />
-						<span style="color: red"><b>WARNING: Unsecure App is not
+					<td><input class="profile" type='password' th:field="*{password}" />
+						</td>
+				</tr>
+				
+				<tr>
+				<td></td>
+					<td class="profile">
+					<span id="warning"><b>WARNING: Unsecure App is not
 								secure.<br /> Do not use a password that you use for any real
 								service.<br /> Do not upload any personal or private data.
-						</b></span></td>
+						</b></span>
+					</td>
 				</tr>
+				
 				<tr>
 					<td>Icon:</td>
-					<td><input type='text' th:field="*{icon}" /> (32x32 image,
+					<td class="profile"><input type='text' th:field="*{icon}" /> (32x32 image,
 						URL to image location)</td>
 				</tr>
 				<tr>
 					<td>Homepage:</td>
-					<td><input type='text' size='50' th:field="*{website}" /></td>
+					<td><input class="profile" type='text' size='50' th:field="*{website}" /></td>
 				</tr>
 				<tr>
 					<td>Profile Color:</td>
-					<td><input type='text' th:field="*{color}" /></td>
+					<td class="profile"><input type='text' th:field="*{color}" /></td>
 				</tr>
 				<tr>
 					<td>Private Snippet:</td>
-					<td><textarea name='private_snippet' rows='10'
+					<td class="profile"><textarea name='private_snippet' rows='10'
 							style='width: 100%' th:field="*{privateSnippet}"></textarea>
 					</td>
 				</tr>
 				<tr th:if="${activeUser != null and activeUser.admin}">
 					<td>Is admin:</td>
-					<td><input type='radio' th:field="*{admin}" th:value="true" />Yes
+					<td class="profile"><input type='radio' th:field="*{admin}" th:value="true" />Yes
 						<input type='radio' th:field="*{admin}" th:value="false" />No</td>
 				</tr>
 				<tr>
 					<td>Is author:</td>
-					<td><input type='radio' th:field="*{author}" th:value="true" />Yes
+					<td class="profile"><input type='radio' th:field="*{author}" th:value="true" />Yes
 						<input type='radio' th:field="*{author}" th:value="false" />No</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td align='right'><input type='submit' value='Save edited account' />
+					<td><input type='submit' value='Save edited account' id="btn" />
 					</td>
 				</tr>
 			</table>

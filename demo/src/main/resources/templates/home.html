@@ -28,13 +28,13 @@
 		  </tr>
 		  <tr><td></td></tr>
 		  <tr th:each="snippet : ${snippets}">
-		    <td>
-		     <img alt=''  height='45' width='45' th:src="'/images/' + ${snippet.user.icon}" />
+		    <td width="5%">
+		     <img alt='' height='45' width='45' th:src="'/images/' + ${snippet.user.icon}" />
 		    </td>
-		    <td>
+		    <td width="20%">
 		      <b><span th:style="'color: ' + ${snippet.user.color} + ';'" th:utext="${snippet.user.name}"></span></b>
 		    </td>
-		    <td class='snippet' ><span th:id="${snippet.id}" th:utext="${snippet.text}"></span>
+		    <td width="600px" class='snippet' ><span th:id="${snippet.id}" th:utext="${snippet.text}"></span>
 		    <br />
 		      <a th:href="@{${snippet.user.website}}">Homepage</a>
 		    <br />
