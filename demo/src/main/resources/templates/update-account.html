@@ -5,7 +5,6 @@
 <title>Edit account</title>
 <script src="/js/lib.js" text="text/javascript" />
 <link href="/css/base.css" rel="stylesheet" />
-
 </head>
 <body>
 	<div th:include="menubar :: menubar"></div>
@@ -22,9 +21,8 @@
 			<table>
 				<tr>
 					<td>User name:</td>
-					<td th:text="*{name}" class="profile">
-						<input type='hidden' th:field="*{name}" />
-					</td>
+					<td th:text="*{name}" class="profile"></td>
+					<input type='hidden' th:field="*{name}" />
 				</tr>
 				<tr>
 					<td>OLD Password:</td>
@@ -32,20 +30,17 @@
 				</tr>
 				<tr>
 					<td>NEW Password:</td>
-					<td><input class="profile" type='password' th:field="*{password}" />
-						</td>
+					<td><input class="profile" type='password' th:field="*{password}" /> <br /></td>
 				</tr>
 				
 				<tr>
 				<td></td>
-					<td class="profile">
-					<span id="warning"><b>WARNING: Unsecure App is not
+				<td>
+						<span id="warning"><b>WARNING: Unsecure App is not
 								secure.<br /> Do not use a password that you use for any real
 								service.<br /> Do not upload any personal or private data.
-						</b></span>
-					</td>
+						</b></span></td>
 				</tr>
-				
 				<tr>
 					<td>Icon:</td>
 					<td class="profile"><input type='text' th:field="*{icon}" /> (32x32 image,
@@ -53,7 +48,7 @@
 				</tr>
 				<tr>
 					<td>Homepage:</td>
-					<td><input class="profile" type='text' size='50' th:field="*{website}" /></td>
+					<td class="profile"><input type='text' size='50' th:field="*{website}" /></td>
 				</tr>
 				<tr>
 					<td>Profile Color:</td>
@@ -77,12 +72,11 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type='submit' value='Save edited account' id="btn" />
+					<td><input type='submit' id="btn" value='Save edited account' />
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-
 </body>
 </html>

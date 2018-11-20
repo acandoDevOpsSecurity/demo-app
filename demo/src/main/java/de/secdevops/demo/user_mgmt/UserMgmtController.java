@@ -64,7 +64,11 @@ public class UserMgmtController {
 		user.setName(userModel.getName());
 		user.setPassword(userModel.getPassword());
 		user.setAuthor(userModel.isAuthor());
-		System.out.println("saving user "+user.getName());
+		user.setIcon("default-smiley.JPG");
+		user.setWebsite("http://www.google.de");
+		user.setColor("black");
+		user.setPrivateSnippet("Noch keinen Text gesetzt.");
+		
 		userDao.save(user);
 
 		mav = new ModelAndView("/login");
@@ -80,7 +84,6 @@ public class UserMgmtController {
 	public String saveEditedProfile(HttpServletResponse response, UserModel userModel, BindingResult bindingResult) {
 		System.out.println("+++ save updated user +++");
 		ModelAndView mav = null;
-
 		UserEntity user = userDao.findByName(userModel.getName());
 		if (!userModel.getPassword().isEmpty())
 			user.setPassword(userModel.getPassword());
