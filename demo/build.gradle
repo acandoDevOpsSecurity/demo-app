@@ -21,7 +21,10 @@ apply plugin: 'findbugs'
 
 jar {
 	baseName = 'demo'
-	version = '0.0.1-SNAPSHOT'
+	version = '1.0'
+	manifest{
+		attributes 'Main-Class': 'de.secdevops.DemoApplication'
+	}
 }
 
 sourceCompatibility = 1.8
