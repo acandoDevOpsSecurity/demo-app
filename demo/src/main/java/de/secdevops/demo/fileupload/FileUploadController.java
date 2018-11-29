@@ -40,7 +40,10 @@ public class FileUploadController {
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public ModelAndView upload(@RequestParam(value = "filename", required = true) String filename, MultipartFile file) throws Exception {
 
-		Path path = Paths.get(filename);
+		//Path path = Paths.get(filename);
+        Files.createDirectories(Paths.get("./uploads"));
+        Path path = Paths.get("./uploads/"+filename);
+
 		// This is an unsecure app, so we don't check the entry.
 //		if (filename.contains("/")){
 //			//appsensorUtils.addAttack(Category.REQUEST, "RE8"); //https://www.owasp.org/index.php/AppSensor_DetectionPoints#RE8:_Unexpected_Type_of_Characters_in_Parameter
