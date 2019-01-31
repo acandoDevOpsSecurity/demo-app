@@ -4,7 +4,8 @@ pipeline {
 
         stage ('Build Project') {
             steps {
-                sh '/bin/bash ./demo/gradlew clean build --stacktrace'
+                sh 'chmod +x ./demo/gradlew'
+                sh './demo/gradlew clean build --stacktrace'
             }
         }
 
