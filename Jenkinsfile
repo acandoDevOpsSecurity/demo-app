@@ -7,8 +7,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        cd ./demo
-                        gradle clean build
+                        ./demo/gradlew clean build check
                     '''
                 }
             }
@@ -18,7 +17,7 @@ pipeline {
     post {
         always {
             junit testResults: '**/target/surefire-reports/TEST-*.xml'
-            recordIssues enabledForFailure: true, tool: checkStyle()
+            recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'target/pmd.xml'),sourceCodeEncoding: 'UTF-8'
         }
     }
 
