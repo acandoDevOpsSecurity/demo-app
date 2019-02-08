@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        chmod +x ./demo gradlew
+                        chmod +x ./demo/gradlew
                         ./demo/gradlew clean build check
                     '''
                 }
