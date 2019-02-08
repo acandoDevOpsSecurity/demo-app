@@ -1,7 +1,6 @@
 package de.secdevops;
 
-import javax.inject.Inject;
-
+import de.secdevops.user.AppUserDetailsService;
 import org.owasp.appsensor.integration.springsecurity.context.AppSensorSecurityContextRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import de.secdevops.user.AppUserDetailsService;
+import javax.inject.Inject;
 
 @Configuration
 @EnableWebSecurity

@@ -1,5 +1,7 @@
 package de.secdevops.demo.snippets;
 
+import de.secdevops.user.UserEntity;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import de.secdevops.user.UserEntity;
 
 @Entity
 @Table(name = "SNIPPET")

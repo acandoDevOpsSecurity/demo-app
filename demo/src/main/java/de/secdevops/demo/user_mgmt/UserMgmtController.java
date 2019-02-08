@@ -1,8 +1,8 @@
 package de.secdevops.demo.user_mgmt;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import de.secdevops.user.UserEntity;
+import de.secdevops.user.UserRepository;
+import de.secdevops.user.UserUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import de.secdevops.user.UserUtils;
-import de.secdevops.user.UserEntity;
-import de.secdevops.user.UserRepository;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class UserMgmtController {
@@ -62,11 +62,7 @@ public class UserMgmtController {
 		user.setName(userModel.getName());
 		user.setPassword(userModel.getPassword());
 		user.setAuthor(userModel.isAuthor());
-		user.setIcon("default-smiley.JPG");
-		user.setWebsite("http://www.google.de");
-		user.setColor("black");
-		user.setPrivateSnippet("Noch keinen Text gesetzt.");
-		
+		System.out.println("saving user "+user.getName());
 		userDao.save(user);
 
 		mav = new ModelAndView("/login");
@@ -82,6 +78,7 @@ public class UserMgmtController {
 	public String saveEditedProfile(HttpServletResponse response, UserModel userModel, BindingResult bindingResult) {
 		System.out.println("+++ save updated user +++");
 		ModelAndView mav = null;
+
 		UserEntity user = userDao.findByName(userModel.getName());
 		if (!userModel.getPassword().isEmpty())
 			user.setPassword(userModel.getPassword());
