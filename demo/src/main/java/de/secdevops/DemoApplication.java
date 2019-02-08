@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 // instead of @SpringBootApplication, using 3 separate annotations 
 // so exclusions for scanning can be controlled - need to ignore  

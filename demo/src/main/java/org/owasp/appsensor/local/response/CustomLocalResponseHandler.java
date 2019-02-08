@@ -1,13 +1,13 @@
 package org.owasp.appsensor.local.response;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import org.owasp.appsensor.core.Response;
 import org.owasp.appsensor.core.logging.Loggable;
 import org.owasp.appsensor.core.response.ResponseHandler;
 import org.owasp.appsensor.core.response.UserManager;
 import org.slf4j.Logger;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 @Named
 @Loggable

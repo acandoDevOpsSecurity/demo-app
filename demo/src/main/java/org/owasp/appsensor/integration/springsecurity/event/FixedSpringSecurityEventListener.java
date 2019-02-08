@@ -1,16 +1,6 @@
 package org.owasp.appsensor.integration.springsecurity.event;
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
+import com.google.common.net.InetAddresses;
 import org.owasp.appsensor.core.AppSensorClient;
 import org.owasp.appsensor.core.DetectionPoint;
 import org.owasp.appsensor.core.DetectionPoint.Category;
@@ -31,7 +21,15 @@ import org.springframework.security.core.session.SessionDestroyedEvent;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 
-import com.google.common.net.InetAddresses;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * This is an event listener for Spring Security events that will see those 
