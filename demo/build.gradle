@@ -82,6 +82,7 @@ tasks.withType(FindBugs) {
 dependencyCheck {
     autoUpdate = false
     format = 'ALL'
+    dataDirectory = '/var/lib/jenkins/owasp-nvd'
 }
 
 pmd {
