@@ -80,8 +80,7 @@ tasks.withType(FindBugs) {
 
 
 dependencyCheck {
-    autoUpdate = true
-    cveValidForHours = 10
+    autoUpdate = false
     format = 'ALL'
 }
 
