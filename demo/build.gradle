@@ -60,7 +60,12 @@ dependencies {
     findbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
 }
 
-
+findbugs {
+    ignoreFailures = true
+    toolVersion = "3.0.1"
+    sourceSets=[sourceSets.main]
+    effort = "max"
+}
 
 tasks.withType(FindBugs) {
 //	classes = files("$buildDir/libs")
@@ -69,14 +74,13 @@ tasks.withType(FindBugs) {
     ignoreFailures = true
     effort = "max"
     reportLevel = "high"
+    pluginClasspath = project.configurations.findbugsPlugins
     reports {
         xml.enabled true
         html.enabled false
         html.stylesheet resources.text.fromFile('style.xsl')
     }
 }
-
-
 
 
 dependencyCheck {
