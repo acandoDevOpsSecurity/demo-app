@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'org.owasp:dependency-check-gradle:4.0.1'
+        classpath 'org.owasp:dependency-check-gradle:4.0.2'
     }
 }
 
@@ -55,9 +55,9 @@ dependencies {
     compile group: 'org.owasp.appsensor', name: 'appsensor-configuration-stax', version: '2.3.2'
     compile group: 'org.owasp.appsensor', name: 'appsensor-integration-spring-security', version: '2.3.2'
 
-    findbugs 'com.google.code.findbugs:findbugs:3.0.0'
+    findbugs 'com.google.code.findbugs:findbugs:3.0.1'
     findbugs configurations.findbugsPlugins.dependencies
-    findbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.6.0'
+    findbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
 }
 
 
@@ -90,7 +90,7 @@ dependencyCheck {
 check.dependsOn dependencyCheckAnalyze
 
 pmd {
-    toolVersion = '5.5.5'
+    toolVersion = '6.11.0'
     ignoreFailures = true
     sourceSets = [sourceSets.main]
     reportsDir = file("$project.buildDir/reports/pmd")

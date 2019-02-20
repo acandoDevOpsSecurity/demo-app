@@ -27,3 +27,4 @@
 *.env
 demo/bin/
 demo/.gradle/
+demo/build/
