@@ -1,14 +1,14 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath 'org.owasp:dependency-check-gradle:1.4.5.1'
-	}
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.owasp:dependency-check-gradle:1.4.5.1'
+    }
 }
 
 apply plugin: 'java'
@@ -20,42 +20,42 @@ apply plugin: 'findbugs'
 
 
 jar {
-	baseName = 'demo'
-	version = '0.0.1-SNAPSHOT'
+    baseName = 'demo'
+    version = '0.0.1-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile 'org.apache.commons:commons-lang3:3.5'
-	runtime('org.hsqldb:hsqldb')
-	compile group: 'com.googlecode.owasp-java-html-sanitizer', name: 'owasp-java-html-sanitizer', version: 'r239'
-	
-	// should be testCompile
-	compile('org.springframework.boot:spring-boot-starter-test')
-	compile('org.springframework.security:spring-security-test')
-	compile('junit:junit:4.12')
-	
-	compile group: 'org.owasp.appsensor', name: 'appsensor-core', version: '2.3.2'
-	compile group: 'org.owasp.appsensor', name: 'appsensor-local', version: '2.3.2'
-	compile group: 'org.owasp.appsensor', name: 'appsensor-storage-in-memory', version: '2.3.2'	
-	compile group: 'org.owasp.appsensor', name: 'appsensor-analysis-reference', version: '2.3.2'
-	compile group: 'org.owasp.appsensor', name: 'appsensor-reporting-simple-logging', version: '2.3.2'
-	compile group: 'org.owasp.appsensor', name: 'appsensor-access-control-reference', version: '2.3.2'
-	compile group: 'org.owasp.appsensor', name: 'appsensor-configuration-stax', version: '2.3.2'
-	compile group: 'org.owasp.appsensor', name: 'appsensor-integration-spring-security', version: '2.3.2'
-	
-	findbugs 'com.google.code.findbugs:findbugs:3.0.0'
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile 'org.apache.commons:commons-lang3:3.5'
+    runtime('org.hsqldb:hsqldb')
+    compile group: 'com.googlecode.owasp-java-html-sanitizer', name: 'owasp-java-html-sanitizer', version: 'r239'
+
+    // should be testCompile
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
+    testCompile('junit:junit:4.12')
+
+    compile group: 'org.owasp.appsensor', name: 'appsensor-core', version: '2.3.2'
+    compile group: 'org.owasp.appsensor', name: 'appsensor-local', version: '2.3.2'
+    compile group: 'org.owasp.appsensor', name: 'appsensor-storage-in-memory', version: '2.3.2'
+    compile group: 'org.owasp.appsensor', name: 'appsensor-analysis-reference', version: '2.3.2'
+    compile group: 'org.owasp.appsensor', name: 'appsensor-reporting-simple-logging', version: '2.3.2'
+    compile group: 'org.owasp.appsensor', name: 'appsensor-access-control-reference', version: '2.3.2'
+    compile group: 'org.owasp.appsensor', name: 'appsensor-configuration-stax', version: '2.3.2'
+    compile group: 'org.owasp.appsensor', name: 'appsensor-integration-spring-security', version: '2.3.2'
+
+    findbugs 'com.google.code.findbugs:findbugs:3.0.0'
     findbugs configurations.findbugsPlugins.dependencies
     findbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.6.0'
 }
@@ -66,43 +66,46 @@ tasks.withType(FindBugs) {
 //	classes = files("$buildDir/libs")
 //    source = fileTree('src/main/java/')
 //   classpath = files()
-	ignoreFailures = true
+    ignoreFailures = true
     effort = "max"
     reportLevel = "high"
     reports {
-        xml.enabled false
-        html.enabled true
+        xml.enabled true
+        html.enabled false
         html.stylesheet resources.text.fromFile('style.xsl')
     }
 }
 
 
 
-    
+
 dependencyCheck {
-	autoUpdate=true
-	cveValidForHours=10
-	format='ALL'
+    autoUpdate = true
+    cveValidForHours = 10
+    format = 'ALL'
 }
 
 pmd {
     toolVersion = '5.5.5'
     ignoreFailures = true
-	sourceSets = [sourceSets.main]
-	reportsDir = file("$project.buildDir/reports/pmd")
-	ruleSets =  ["java-basic", "java-braces", "java-j2ee", "java-naming", "java-imports", "java-sunsecure", "java-unusedcode", "java-unnecessary","java-codesize"]
+    sourceSets = [sourceSets.main]
+    reportsDir = file("$project.buildDir/reports/pmd")
+    ruleSets = ["java-basic", "java-braces", "java-j2ee", "java-naming", "java-imports", "java-sunsecure", "java-unusedcode", "java-unnecessary", "java-codesize"]
 }
 
-check << {
-  File outDir = new File('build/reports/pmd/')
-  outDir.mkdirs()
-  ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
-    classpath: configurations.pmd.asPath)
-  ant.cpd(minimumTokenCount: '100', format: 'xml',
-    outputFile: new File(outDir , 'cpd.xml')) {
-    fileset(dir: "src/main/java") {
-      include(name: '**/*.java')
+check {
+    doLast {
+
+        File outDir = new File('build/reports/pmd/')
+        outDir.mkdirs()
+        ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
+                classpath: configurations.pmd.asPath)
+        ant.cpd(minimumTokenCount: '100', format: 'xml',
+                outputFile: new File(outDir, 'cpd.xml')) {
+            fileset(dir: "src/main/java") {
+                include(name: '**/*.java')
+            }
+        }
     }
-  }
 }
 

@@ -1,16 +1,14 @@
 package de.secdevops;
 
+import de.secdevops.user.UserUtils;
 import org.owasp.appsensor.core.AppSensorClient;
 import org.owasp.appsensor.core.Attack;
 import org.owasp.appsensor.core.DetectionPoint;
 import org.owasp.appsensor.core.DetectionSystem;
 import org.owasp.appsensor.core.Event;
-import org.owasp.appsensor.core.DetectionPoint.Category;
 import org.owasp.appsensor.core.event.EventManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import de.secdevops.user.UserUtils;
 
 @Service
 public class AppsensorUtils {
