@@ -7,10 +7,10 @@
 	<div th:fragment="menubar">	
 		<div class='menu'>
 		  <span id='menu-left'>
-		    <a href='/'>Home</a>
+		    <a th:href="@{/}">Home</a>
 		      <span th:if="${activeUser} != null">
-		      	| <a href='/snippet/new-snippet'>New&nbsp;snippet</a>
-		      	| <a href='/upload'>Upload file</a>
+		      	| <a th:href="@{/snippet/new-snippet}">New&nbsp;snippet</a>
+		      	| <a th:href="@{/upload}">Upload file</a>
 		      </span>
 		  </span>
 		  <span id='menu-right'>
@@ -18,13 +18,13 @@
 		      	<span class='menu-user'>
 		        	<span th:text="${activeUser.name}"></span>
 		      	</span>
-		      	| <a href='/edit-account'>Edit profile</a>
-		      	| <a href='/logout'>Sign out</a>
+		      	| <a th:href="@{/edit-account}">Edit profile</a>
+		      	| <a th:href="@{/logout}">Sign out</a>
 		      </span>
 		      
 		      <span th:if="${activeUser} == null">
-		      	<a href='/login'>Sign in</a>
-		      	| <a href='/new-account'>Sign up</a>
+		      	<a th:href="@{/login}">Sign in</a>
+		      	| <a th:href="@{/new-account}">Sign up</a>
 		      </span>
 		  </span>
 		</div>	

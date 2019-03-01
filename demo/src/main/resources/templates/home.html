@@ -3,8 +3,8 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Unsecure Spring-Boot App using Gradle</title>
-    <script src="/js/lib.js" text="text/javascript" />
-    <link href="/css/base.css" rel="stylesheet" />
+    <script th:src="@{/js/lib.js}" text="text/javascript" />
+    <link th:href="@{/css/base.css}" rel="stylesheet" />
 </head>
 <body>
 	<div th:include="menubar :: menubar"></div>
@@ -29,7 +29,7 @@
 		  <tr><td></td></tr>
 		  <tr th:each="snippet : ${snippets}">
 		    <td width="5%">
-		     <img alt='' height='45' width='45' th:src="'/images/' + ${snippet.user.icon}" />
+		     <img alt='' height='45' width='45' th:src="@{'/images/' + ${snippet.user.icon}}" />
 		    </td>
 		    <td width="20%">
 		      <b><span th:style="'color: ' + ${snippet.user.color} + ';'" th:utext="${snippet.user.name}"></span></b>
