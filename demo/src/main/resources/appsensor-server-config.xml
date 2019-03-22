@@ -16,6 +16,7 @@
 	</client-applications>
 
 	<detection-points>
+	<!--
 		<detection-point>
 			<category>Input Validation</category>
 			<id>IE1</id>
@@ -111,6 +112,7 @@
 			</responses>
 		</detection-point>
 		<!-- additional detection points -->
+		<!--
 		<detection-point>
 			<category>Request</category>
 			<id>RE8</id>
@@ -126,8 +128,10 @@
 					<action>disableComponentForSpecificUser</action>
 					<interval unit="hours">24</interval>
 				</response> -->
+				<!--
 			</responses>
 		</detection-point>
+		-->
 	</detection-points>
 
 </appsensor-server-config>
