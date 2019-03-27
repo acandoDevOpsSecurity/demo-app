@@ -91,7 +91,6 @@ dependencyCheck {
     }
 }
 
-check.dependsOn dependencyCheckAnalyze
 
 pmd {
     toolVersion = '6.11.0'
