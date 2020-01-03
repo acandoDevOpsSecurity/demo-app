@@ -1,8 +1,8 @@
 package de.secdevops.demo.user_mgmt;
 
-import de.secdevops.user.UserEntity;
-import de.secdevops.user.UserRepository;
-import de.secdevops.user.UserUtils;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
+import de.secdevops.user.UserEntity;
+import de.secdevops.user.UserRepository;
+import de.secdevops.user.UserUtils;
 
 @Controller
 public class UserMgmtController {
@@ -89,6 +90,10 @@ public class UserMgmtController {
 		user.setAdmin(userModel.isAdmin());
 		user.setAuthor(userModel.isAuthor());
 		userDao.save(user);
+		
+		if(userModel.getColor() == null) {
+			userModel.setColor("blue");
+		}
 		
         Cookie newCookie = new Cookie(userModel.getColor(), userModel.getColor());
         newCookie.setMaxAge(24 * 60 * 60);
