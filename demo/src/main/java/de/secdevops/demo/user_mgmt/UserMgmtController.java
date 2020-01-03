@@ -91,7 +91,7 @@ public class UserMgmtController {
 		user.setAuthor(userModel.isAuthor());
 		userDao.save(user);
 		
-		if(userModel.getColor() == null) {
+		if(userModel.getColor() == null || userModel.getColor().isEmpty()) {
 			userModel.setColor("blue");
 		}
 		
